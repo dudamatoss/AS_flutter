@@ -23,4 +23,10 @@ class HomeStyles {
     borderRadius: BorderRadius.circular(12)
   );
 
+  static const TextStyle detailText = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w900,
+    color: Colors.white,
+  );
+
 }

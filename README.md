@@ -6,7 +6,6 @@ Este aplicativo foi desenvolvido como trabalho para a disciplina **Desenvolvimen
 
 O app permite ao usuário visualizar informações básicas sobre cada país, como nome, bandeira, população, capital, idioma e moeda, além de navegar para uma tela de detalhes com informações mais completas sobre o país selecionado.
 
-A interface foi cuidadosamente estilizada para garantir uma experiência agradável, utilizando padrões de design consistentes e responsivos. O código foi estruturado de forma modular, separando as responsabilidades de apresentação, serviço e modelo.
 
 ---
 
@@ -15,17 +14,8 @@ A interface foi cuidadosamente estilizada para garantir uma experiência agradá
 - Listagem de países obtidos via API
 - Visualização da bandeira e nome do país
 - Detalhes adicionais: capital, população, idioma e moeda
-- Tratamento de erros e carregamento assíncrono
-- Interface estilizada e responsiva
-
----
-
-## Tecnologias Utilizadas
-
-- Flutter (framework para desenvolvimento mobile)
-- Dart (linguagem de programação)
-- HTTP (para requisições à API)
-- REST Countries API (fonte dos dados dos países)
+- Tratamento de erros 
+- Interface estilizada
 
 ---
 

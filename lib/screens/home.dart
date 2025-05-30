@@ -1,11 +1,12 @@
-import 'package:ap2/styles/home_style.dart';
 import 'package:flutter/material.dart';
+import 'package:ap2/styles/screens_style.dart';
 import '../models/countries.dart';
 import '../service/countries_service.dart';
 import 'details_countries.dart';
 
-
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,7 +25,6 @@ class Home extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -46,18 +46,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: HomeStyles.secondaryColor,
       appBar: AppBar(
-        title: const Text(
-          'Países do Mundo',
+        title: Text(
+          widget.title,
           style: HomeStyles.appBar,
           textAlign: TextAlign.center,
           overflow: TextOverflow.ellipsis,
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 12),
+            padding: HomeStyles.imagePadding,
             child: SizedBox(
-              width: 50,
-              height: 50,
+              width: HomeStyles.imageWidth,
+              height: HomeStyles.imageHeight,
               child: Image.asset(
                 'assets/rosa_dos_ventos.png',
                 fit: BoxFit.contain,
@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
             return Center(
               child: Text(
                 "Erro ao carregar os países: ${snapshot.error}",
-                style: const TextStyle(color: Colors.white),
+                style: HomeStyles.errorText,
               ),
             );
           }
@@ -88,22 +88,22 @@ class _MyHomePageState extends State<MyHomePage> {
             final countries = snapshot.data ?? [];
 
             return ListView.separated(
-              padding: const EdgeInsets.all(15),
+              padding: HomeStyles.listPadding,
               itemCount: countries.length,
-              separatorBuilder: (_, __) => const SizedBox(height: 25),
+              separatorBuilder: (_, __) => HomeStyles.listSeparator,
               itemBuilder: (context, index) {
                 final country = countries[index];
                 return Container(
                   decoration: HomeStyles.cardBoxDecoration,
-                  padding: const EdgeInsets.all(10),
+                  padding: HomeStyles.cardPadding,
                   child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    contentPadding: HomeStyles.listTileContentPadding,
                     title: Text(
                       country.name,
                       style: HomeStyles.countryName,
                     ),
                     trailing: IconButton(
-                      icon: const Icon(Icons.info_outline, color: Colors.white),
+                      icon: const Icon(Icons.info_outline, color: HomeStyles.infoColor),
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
           return const Center(
             child: Text(
               "Nenhum dado encontrado.",
-              style: TextStyle(color: Colors.white),
+              style: HomeStyles.emptyText,
             ),
           );
         },

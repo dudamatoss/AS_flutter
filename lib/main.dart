@@ -1,5 +1,5 @@
 
-import 'package:ap2/pages/home.dart';
+import 'package:ap2/screens/home.dart';
 import 'package:flutter/material.dart';
 
 

@@ -6,7 +6,7 @@ Este aplicativo foi desenvolvido como trabalho para a disciplina **Desenvolvimen
 
 O app permite ao usuário visualizar informações básicas sobre cada país, como nome, bandeira, população, capital, idioma e moeda, além de navegar para uma tela de detalhes com informações mais completas sobre o país selecionado.
 
-A interface foi cuidadosamente estilizada para garantir uma experiência agradável, utilizando padrões de design consistentes e responsivos. O código foi estruturado de forma modular, separando as responsabilidades de apresentação, serviço e modelo.
+A interface foi estilizada para garantir uma experiência agradável, utilizando padrões de design consistentes e responsivos. O código foi estruturado de forma modular, separando as responsabilidades de apresentação, serviço e modelo.
 
 ---
 

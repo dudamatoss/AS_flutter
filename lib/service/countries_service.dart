@@ -6,7 +6,7 @@ import '../models/countries.dart';
 class CountriesService {
   Future<List<Countries>> getCountries() async {
     var response = await http.get(
-      Uri.parse("https://restcountries.com/v3.1/all"),
+      Uri.parse("https://restcountries.com/v3.1/all?fields=name,flags,population,capital,languages,currencies"),
     );
 
     if (response.statusCode == 200) {

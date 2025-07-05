@@ -21,4 +21,8 @@ class FireBaseAuthService {
       debugPrint(e.toString());
     }
   }
+  singOut() async{
+    await _auth.signOut();
+  }
+
 }

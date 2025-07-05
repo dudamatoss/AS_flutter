@@ -16,15 +16,29 @@ class Countries{
   });
 
   factory Countries.fromJson(Map<String, dynamic> json) {
+    final capitalList = json['capital'] as List<dynamic>?;
+    final capital = (capitalList != null && capitalList.isNotEmpty)
+        ? capitalList.first as String
+        : 'Sem capital';
+
+    final languagesMap = json['languages'] as Map<String, dynamic>?;
+    final lang = (languagesMap != null && languagesMap.isNotEmpty)
+        ? languagesMap.values.first.toString()
+        : 'Desconhecido';
+
+    final currenciesMap = json['currencies'] as Map<String, dynamic>?;
+    final currency = (currenciesMap != null && currenciesMap.isNotEmpty)
+        ? currenciesMap.values.first['name'] ?? 'Desconhecida'
+        : 'Desconhecida';
+
     return Countries(
-      name: json['name']['common'] ?? '',
-      image: json['flags']['png'] ?? '',
+      name: json['name']?['common'] ?? 'Sem nome',
+      image: json['flags']?['png'] ?? '',
       population: json['population'] ?? 0,
-      capital: (json['capital'] != null && json['capital'].isNotEmpty) ? json['capital'][0] : '',
-      lang: json['languages'] != null ? json['languages'].values.first : '',
-      currency: json['currencies'] != null ? json['currencies'].keys.first : '',
+      capital: capital,
+      lang: lang,
+      currency: currency,
     );
   }
-
 
 }

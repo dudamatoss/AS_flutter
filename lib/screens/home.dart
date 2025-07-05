@@ -1,3 +1,4 @@
+import 'package:ap2/screens/firebase/auth/firebase_auth_servise.dart';
 import 'package:flutter/material.dart';
 import 'package:ap2/styles/screens_style.dart';
 import '../models/countries.dart';
@@ -34,6 +35,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final CountriesService _countriesService = CountriesService();
   late Future<List<Countries>> _countriesFuture;
+  final FireBaseAuthService _auth = FireBaseAuthService();
 
   @override
   void initState() {
@@ -74,7 +76,6 @@ class _MyHomePageState extends State<MyHomePage> {
               child: CircularProgressIndicator(color: Colors.white),
             );
           }
-
           if (snapshot.hasError) {
             return Center(
               child: Text(
@@ -83,7 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             );
           }
-
           if (snapshot.hasData) {
             final countries = snapshot.data ?? [];
             //sendo usado listView aqui
@@ -127,6 +127,16 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         },
       ),
+      //button flutuande de logout 
+      floatingActionButton: FloatingActionButton(
+          onPressed: (){
+          _auth.singOut();
+          },
+        backgroundColor: HomeStyles.primaryColor.withOpacity(0.6),
+        child: const Icon(Icons.logout, color:  Colors.white ),
+        elevation: 4,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

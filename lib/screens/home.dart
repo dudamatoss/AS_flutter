@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
           if (snapshot.hasData) {
             final countries = snapshot.data ?? [];
-
+            //sendo usado listView aqui
             return ListView.separated(
               padding: HomeStyles.listPadding,
               itemCount: countries.length,

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../models/countries.dart';
 
@@ -14,6 +15,7 @@ class CountriesService {
       return jsonResponse.map((item) => Countries.fromJson(item)).toList();
     } else {
       throw Exception("Erro ao carregar os países: ${response.statusCode}");
+
     }
   }
 }

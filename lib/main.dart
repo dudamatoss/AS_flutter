@@ -1,4 +1,6 @@
 
+import 'package:ap2/models/user_model.dart';
+import 'package:ap2/screens/firebase/auth/firebase_auth_servise.dart';
 import 'package:ap2/screens/home.dart';
 import 'package:ap2/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,7 +24,28 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //home: Home(),
-      home: LoginPage(),
+      home: InitalizeApp(),
     );
   }
 }
+class InitalizeApp extends StatelessWidget {
+  final FireBaseAuthService _auth = FireBaseAuthService();
+
+  InitalizeApp ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<UserModel>(stream: _auth.user,
+        builder: (context,snapshot) {
+       if(snapshot.connectionState == ConnectionState.waiting) {
+         return const Center(
+           child: CircularProgressIndicator(),
+         );
+       } else if(snapshot.hasData && snapshot.data!.email.isNotEmpty){
+         return const Home();
+       }
+       return LoginPage();
+    });
+  }
+}
+ 

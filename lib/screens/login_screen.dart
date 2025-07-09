@@ -1,4 +1,5 @@
 import 'package:ap2/screens/firebase/auth/firebase_auth_servise.dart';
+import 'package:ap2/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:ap2/styles/screens_style.dart';
@@ -130,7 +131,9 @@ class _LoginPageState extends State<LoginPage> {
                         ).copyWith(color: HomeStyles.primaryColor),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            Navigator.pushNamed(context, '/cadastro');
+                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return RegisterPage();
+                          }));
                           },
                       ),
                     ],
